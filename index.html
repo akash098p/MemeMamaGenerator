@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemeMama - Professional Meme Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 2V4M10 16V18M18 10H16M4 10H2M15.657 4.343L14.243 5.757M5.757 14.243L4.343 15.657M15.657 15.657L14.243 14.243M5.757 5.757L4.343 4.343" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M17 10.5C16 14.5 12.5 17.5 8.5 17.5C4.5 17.5 1 14 1 10C1 6 4 2.5 8 2.5C8.5 2.5 9 2.5 9.5 2.5C7.5 4 6.5 6.5 7 9C7.5 12 10 14.5 13 15C14.5 15.5 16 15 17 14V10.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">
+                <span class="logo-icon">🎨</span>
+                MemeMama
+            </h1>
+            <p class="tagline">Create viral-worthy memes with professional tools</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Left Sidebar - Tools -->
+        <aside class="sidebar sidebar-left">
+            <div class="tool-section">
+                <h3 class="section-title">Upload</h3>
+                <label class="upload-btn" for="imageUpload">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 15V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M17 8L12 3M12 3L7 8M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Choose Image</span>
+                    <input type="file" id="imageUpload" accept="image/jpeg,image/png,image/jpg" hidden>
+                </label>
+            </div>
+
+            <div class="tool-section">
+                <h3 class="section-title">Text</h3>
+                <button class="tool-btn" id="addTextBtn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 4H16M10 4V16M7 16H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Add Text
+                </button>
+                
+                <div class="text-controls" id="textControls">
+                    <input type="text" id="textContent" placeholder="Enter text..." class="input-field">
+                    
+                    <label class="input-label">Font</label>
+                    <select id="fontFamily" class="select-field">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial Black">Arial Black</option>
+                        <option value="Comic Sans MS">Comic Sans MS</option>
+                        <option value="Playfair Display">Playfair Display</option>
+                        <option value="DM Sans">DM Sans</option>
+                        <option value="JetBrains Mono">JetBrains Mono</option>
+                        <option value="Bebas Neue">Bebas Neue</option>
+                        <option value="Montserrat">Montserrat</option>
+                    </select>
+                    
+                    <label class="input-label">Size</label>
+                    <input type="range" id="fontSize" min="12" max="120" value="40" class="slider">
+                    <span class="slider-value" id="fontSizeValue">40px</span>
+                    
+                    <label class="input-label">Color</label>
+                    <input type="color" id="textColor" value="#ffffff" class="color-picker">
+                    
+                    <label class="input-label">Stroke</label>
+                    <input type="range" id="strokeWidth" min="0" max="10" value="3" class="slider">
+                    <span class="slider-value" id="strokeValue">3px</span>
+                    
+                    <label class="input-label">Stroke Color</label>
+                    <input type="color" id="strokeColor" value="#000000" class="color-picker">
+                    
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="textShadow">
+                            <span>Shadow</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="textBold">
+                            <span>Bold</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="textItalic">
+                            <span>Italic</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3 class="section-title">Background</h3>
+                <button class="tool-btn" id="autoRemoveBgBtn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2L2 6V10C2 14.418 5.134 18.1 10 19C14.866 18.1 18 14.418 18 10V6L10 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                    Auto Remove
+                </button>
+                <button class="tool-btn" id="manualRemoveBgBtn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
+                        <path d="M10 7V13M7 10H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Manual Erase
+                </button>
+                
+                <div id="manualBgControls" class="hidden">
+                    <label class="input-label">Brush Size</label>
+                    <input type="range" id="brushSize" min="5" max="100" value="20" class="slider">
+                    <span class="slider-value" id="brushSizeValue">20px</span>
+                    
+                    <div class="btn-group">
+                        <button class="tool-btn-sm" id="eraseModeBtn">Erase</button>
+                        <button class="tool-btn-sm" id="restoreModeBtn">Restore</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3 class="section-title">Decorations</h3>
+                <label class="input-label">Border Style</label>
+                <select id="borderStyle" class="select-field">
+                    <option value="none">None</option>
+                    <option value="solid">Solid</option>
+                    <option value="dashed">Dashed</option>
+                    <option value="glow">Glow</option>
+                </select>
+                
+                <label class="input-label">Border Width</label>
+                <input type="range" id="borderWidth" min="0" max="30" value="0" class="slider">
+                <span class="slider-value" id="borderWidthValue">0px</span>
+                
+                <label class="input-label">Border Color</label>
+                <input type="color" id="borderColor" value="#ffffff" class="color-picker">
+            </div>
+
+            <div class="tool-section">
+                <h3 class="section-title">Emojis & Stickers</h3>
+                <div class="emoji-grid" id="emojiGrid">
+                    <button class="emoji-btn" data-emoji="😂">😂</button>
+                    <button class="emoji-btn" data-emoji="🔥">🔥</button>
+                    <button class="emoji-btn" data-emoji="💀">💀</button>
+                    <button class="emoji-btn" data-emoji="😎">😎</button>
+                    <button class="emoji-btn" data-emoji="❤️">❤️</button>
+                    <button class="emoji-btn" data-emoji="💯">💯</button>
+                    <button class="emoji-btn" data-emoji="🤣">🤣</button>
+                    <button class="emoji-btn" data-emoji="👀">👀</button>
+                    <button class="emoji-btn" data-emoji="🙏">🙏</button>
+                    <button class="emoji-btn" data-emoji="✨">✨</button>
+                    <button class="emoji-btn" data-emoji="🎉">🎉</button>
+                    <button class="emoji-btn" data-emoji="😭">😭</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Canvas Area -->
+        <section class="canvas-area">
+            <div class="canvas-toolbar">
+                <div class="toolbar-group">
+                    <button class="toolbar-btn" id="undoBtn" title="Undo (Ctrl+Z)">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M8 4L4 8L8 12M4 8H14C16.2091 8 18 9.79086 18 12V12C18 14.2091 16.2091 16 14 16H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="toolbar-btn" id="redoBtn" title="Redo (Ctrl+Y)">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M12 4L16 8L12 12M16 8H6C3.79086 8 2 9.79086 2 12V12C2 14.2091 3.79086 16 6 16H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="toolbar-group">
+                    <button class="toolbar-btn" id="zoomInBtn" title="Zoom In">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M13.5 13.5L17 17M9 6V12M6 9H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button class="toolbar-btn" id="zoomOutBtn" title="Zoom Out">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M13.5 13.5L17 17M6 9H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button class="toolbar-btn" id="resetZoomBtn" title="Reset Zoom">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10H16M10 4V16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="toolbar-group">
+                    <button class="toolbar-btn" id="clearAllBtn" title="Clear All">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M6 6L14 14M14 6L6 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="canvas-container" id="canvasContainer">
+                <canvas id="mainCanvas"></canvas>
+                <div class="empty-state" id="emptyState">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <rect x="10" y="10" width="60" height="60" rx="8" stroke="currentColor" stroke-width="3" stroke-dasharray="8 8"/>
+                        <path d="M40 30V50M30 40H50" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    <p>Upload an image to start creating</p>
+                    <p class="hint">Drag and drop or click the upload button</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Sidebar - Layers -->
+        <aside class="sidebar sidebar-right">
+            <div class="tool-section">
+                <h3 class="section-title">Layers</h3>
+                <div class="layers-list" id="layersList">
+                    <p class="empty-layers">No layers yet</p>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3 class="section-title">Export</h3>
+                <label class="input-label">Format</label>
+                <select id="exportFormat" class="select-field">
+                    <option value="png">PNG</option>
+                    <option value="jpg">JPG</option>
+                </select>
+                
+                <label class="input-label">Quality</label>
+                <select id="exportQuality" class="select-field">
+                    <option value="1">Standard (1x)</option>
+                    <option value="2">High (2x)</option>
+                    <option value="3">Ultra (3x)</option>
+                </select>
+                
+                <button class="export-btn" id="exportBtn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M17 13V17H3V13M10 3V13M10 13L6 9M10 13L14 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Download Meme
+                </button>
+            </div>
+
+            <div class="tool-section">
+                <h3 class="section-title">Keyboard Shortcuts</h3>
+                <div class="shortcuts">
+                    <div class="shortcut">
+                        <kbd>Ctrl + Z</kbd>
+                        <span>Undo</span>
+                    </div>
+                    <div class="shortcut">
+                        <kbd>Ctrl + Y</kbd>
+                        <span>Redo</span>
+                    </div>
+                    <div class="shortcut">
+                        <kbd>Delete</kbd>
+                        <span>Delete Layer</span>
+                    </div>
+                    <div class="shortcut">
+                        <kbd>Ctrl + T</kbd>
+                        <span>Add Text</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Processing...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.2.0"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/text-tools.js"></script>
+    <script src="js/bg-remove-auto.js"></script>
+    <script src="js/bg-remove-manual.js"></script>
+    <script src="js/export.js"></script>
+</body>
+</html>
