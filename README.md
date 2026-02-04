@@ -58,24 +58,9 @@ A feature-rich, professional meme generator built with vanilla JavaScript, HTML5
 - **Fonts**: Google Fonts API
 - **Deployment**: GitHub Pages / Netlify ready
 
-## 📁 Project Structure
+## 💻 Live Preview 
 
-```
-meme-generator/
-│
-├── index.html              # Main HTML file
-├── css/
-│   └── style.css          # Professional styling with theme support
-├── js/
-│   ├── canvas.js          # Canvas management, zoom, pan, layers
-│   ├── text-tools.js      # Text manipulation and emoji handling
-│   ├── bg-remove-auto.js  # AI-powered background removal
-│   ├── bg-remove-manual.js # Manual background removal tool
-│   └── export.js          # High-resolution export functionality
-└── assets/
-    ├── emojis/            # Emoji assets
-    └── stickers/          # Sticker assets
-```
+https://akash098p.github.io/MemeMamaGenerator/
 
 ## 🎯 Getting Started
 
@@ -83,8 +68,8 @@ meme-generator/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/mememama-generator.git
-cd mememama-generator
+git clone https://akash098p.github.io/MemeMamaGenerator.git
+cd MemeMamaGenerator 
 ```
 
 2. Open `index.html` in your browser or use a local server:
@@ -173,7 +158,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 👨‍💻 Author
 
-Built with ❤️ for meme creators worldwide
+Akash Pramanik 
 
 ---
 
