@@ -60,7 +60,7 @@ A feature-rich, professional meme generator built with vanilla JavaScript, HTML5
 
 ## 💻 Live Preview 
 
-https://akash098p.github.io/MemeMamaGenerator/
+https://akash098p.github.io/Meme-Mama-Generator/
 
 ## 🎯 Getting Started
 
